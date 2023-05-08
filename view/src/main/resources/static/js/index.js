@@ -1,0 +1,318 @@
+//柱形图模块1
+(function (){
+    //实例化对象
+    var myChart=
+        echarts.init(document.querySelector(".bar   .chart"));
+    //配置指定项以及数据
+    option = {
+        tooltip:{
+            trigger: 'axis',
+            axisPointer:{
+                type:'shadow'
+                //shadow：阴影指示器、line：直线指示器、cross：十字指示器
+            },
+            //定义tooltip鼠标放上去后的提示显示效果
+            formatter:function (params){
+                return'<div>'+params[0].name+'行业<br>'+'发布'+'<span style="color: 0;">'+params[0].value+'</span>个招聘需求'+'</div>';
+            }
+        },
+
+        xAxis: {
+            type: 'category',
+            data: ['C', '大数据', 'Web前端', 'SQL', 'hadoop', '应用服务', '其他'],
+            // 修改刻度标签 相关样式
+            axisLabel: {
+                color: "white",
+                fontSize: "12",
+                show: true,
+                interval:0,//X轴label显示全
+                formatter: function (params) {
+                    var newParamsName =
+                        "";
+                    var paramsNameNumber =
+                        params.length;
+                    var provideNumber = 3;
+                    var rowNumber =
+                        Math.ceil(paramsNameNumber / provideNumber);
+                    if (paramsNameNumber >
+                        provideNumber){
+                        for (var p = 0;p <
+                        rowNumber; p++){
+                            var tempStr =
+                                "";
+                            var start = p *
+                                provideNumber;
+                            var end = start +
+                                provideNumber;
+                            if (p == rowNumber - 1 )
+                            {
+                                tempStr =
+                                    params.substring(start, paramsNameNumber);
+                            } else{
+                                tempStr =
+                                    params.substring(start, end) + "\n"
+                            }
+                            newParamsName +=
+                                tempStr;
+                        }
+                    } else {
+                        newParamsName = params;
+                    }
+                    return newParamsName;
+                }
+            },
+            // 不顯示x坐標軸
+            axisLine: {
+                show: false
+            },
+        },
+        yAxis: {
+            type: 'value',
+            // 修改刻度标签 相关样式
+            axisLabel: {
+                color: "white ",
+                fontSize: 12,
+            },
+            // y轴的线条改为了 2像素
+            axisLine: {
+                lineStyle: {
+                    color:
+                        "rgba(218,211,211,0.18)",
+                    width: 2,
+                },
+            },
+            // y轴分割线的颜色
+            splitLine: {
+                lineStyle: {
+                    color:
+                        "rgba(232,226,226,0.65)",
+                }
+            }
+        },
+        series: [
+            {
+                data: [19778, 22307, 23067, 15062, 20279, 17072, 12026],
+                type: 'bar',
+                name: 'Direct',
+                barWidth: '35%',
+                itemStyle: {
+                    barBorderRadius: 5,
+                },
+            },
+        ],
+        color: ["rgba(255,71,142,0.44)"],
+        grid: {
+            left: "0%",
+            top: "10px",
+            right: "0%",
+            bottom: "4%",
+            containLabel: true
+        },
+    }
+    //将配置项给实例对象
+    myChart.setOption(option);
+    window.addEventListener("reset",function (){
+        myChart.resize();
+    })
+})();
+
+
+//条形图（柱状图）2
+(function (){
+    //实例化对象
+    var myChart=echarts.init(document.querySelector(".bar2   .chart"));
+    // 定义颜色
+    var myColor = ["#ff0000", "rgba(255,240,71,0.68)", "rgba(255,255,255,0.56)", "rgb(200,0,255)", "blue", "#F4A460"];
+    //指定配置和数据
+    var option={
+        grid: {
+            top: '10%',
+            left: '22%',
+            bottom: '10%',
+        },
+        xAxis: {
+            show: false,
+        },
+        yAxis: [{
+            type: 'category',
+            data: ['Brazil', 'Indonesia', 'USA', 'India', 'China', 'World'],
+            inverse: true,
+            // 不显示y轴的线
+            axisLine: {
+                show: false
+            },
+            // 不显示刻度
+            axisTick: {
+                show: false
+            },
+            // 把刻度标签里面的文字颜色设置为白色
+            axisLabel: {
+                color: "rgba(255,255,255,0.99)"
+            },
+        },{
+            show: true,
+            data: [1935, 2338, 3100, 1294, 13441, 6817],
+            inverse: true,
+            // 不显示y轴的线
+            axisLine: {
+                show: false
+            },
+            // 不显示刻度
+            axisTick: {
+                show: false
+            },
+            // 把刻度标签里面的文字颜色设置为白色
+            axisLabel: {
+                textStyle: {
+                    color: "rgb(71,212,255)",
+                    fontSize: 12,
+                }
+            },
+        }
+        ],
+        series: [
+            {
+                name: '框'
+                ,
+                type: 'bar',
+                barCategoryGap: 50,
+                BarWidth: 15,
+                data: [100, 100, 100, 100, 100, 100],
+
+                // 给series 第二个对象里面的添加
+                yAxisIndex: 1,
+                itemStyle: {
+                    color: "none",
+                    borderColor: "0",
+                    borderWidth: 18,
+                    barBorderRadius: 15
+                },
+            }
+            ,
+            {
+                name: '条',
+                type: 'bar',
+                data: [94.19, 100.21, 93.65, 86.33, 98.21, 92.44],
+                // 给series 第一个对象里面的添加
+                yAxisIndex: 0,
+                // 修改第一组柱子的圆角
+                itemStyle: {
+                    barBorderRadius: 20,
+                    color: function
+                        (params) {
+                        console.log(params);
+                        return myColor[params.dataIndex];
+                    },
+                },
+                // 柱子之间的距离
+                barCategoryGap: 50,
+                // 显示柱子内的文字
+                barWidth: 10,
+                // 显示柱子内的文字
+                label: {
+                    show: true,
+                    position: "inside",
+                    // {c} 会自动的解析为 数据data里面的数据
+                    formatter: "{c}%"
+                }
+            },
+
+        ]
+    };
+    //把配置给实例对象
+    myChart.setOption(option);
+    window.addEventListener("reset",function (){
+        myChart.resize();
+    })
+})();
+
+
+// 折线图1模块制作
+(function() {
+// 1. 实例化对象
+    var myChart =
+        echarts.init(document.querySelector(".line   .chart"));
+
+// 2.指定配置
+    var option = {
+        //通过color修改俩条线的颜色
+        color:[ "#00f2f1", "#ed3f35"],
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            //data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine'],
+            textStyle: {
+                color:"#47d4ff"//图例文字颜色
+            },
+            //距离右边10%
+            right:'25%' // 距离右边25%
+        },
+
+        grid: {
+            top:"20%",
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            show:true,//显示边框
+            borderColor: 'red',
+            containLabel: true//包含刻度文字在内
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['1月', '2月', '3月',
+                '4月', '5月', '6月', '7月', '8月', '9月', '10月'
+                , '11月', '12月'],
+            axisTick:{
+                show:false //去除刻度线
+            },
+            axisLabel:{
+                color:'rgba(255,255,255,0.98)' //文本颜色
+            },
+            axisLine:{
+                show:false //去除轴线
+            },
+        },
+        yAxis: {
+            type: 'value',
+            axisTick:{
+                show:false //去除刻度线
+            },
+            splitLine: {
+                lineStyle:{
+                    color:'#012f4a' //分割线颜色
+                }
+            },
+            axisLabel:{
+                color:'#ffffff' //文本颜色
+            },
+        },
+        series: [
+            {
+                name: '校招需求人数',
+                type: 'line',
+                stack: 'Total',
+                data: [24, 40, 101, 134, 90, 230, 210, 230, 120,
+                230, 210, 120],
+                //true 可以让我们的折线显示带有弧度
+                smooth:true,
+            },
+            {
+                name: '社招需求人数',
+                type: 'line',
+                data: [40, 64, 191, 324, 290, 330, 310
+                , 213, 180, 200, 180, 79],
+                smooth: true,
+            }
+        ]
+    };
+
+// 3. 把配置给实例对象
+    myChart.setOption(option);
+    //让图标跟随屏幕去自动适应
+    window.addEventListener("resize",function (){
+        myChart.resize();
+    })
+
+})();

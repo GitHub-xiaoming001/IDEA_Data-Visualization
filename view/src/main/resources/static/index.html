@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大数据可视化</title>
+    <link rel="stylesheet"href="css/index.css" />
+</head>
+</html>
+<script src="js/flexible.js"></script>
+</body>
+</html>
+<title>大数据可视化</title>
+<link rel="stylesheet"
+      href="css/index.css">
+</head>
+<header>
+    <h1>大数据可视化职位分析项目</h1>
+    <div class="showTime"></div>
+    <script>
+        var t=null;
+        t=setTimeout(time,1000); //开始运行
+        function time(){
+            clearTimeout(t);   //清除计时器
+            dt=new Date()
+            var y=dt.getFullYear();
+            var mt=dt.getMonth()+1;
+            var day=dt.getDate();
+            var h=dt.getHours();
+            var m=dt.getMinutes();
+            var s=dt.getSeconds();
+            document.querySelector(".showTime").innerHTML ="日期："+y+'年'+mt+'月'+day+'日'+h+'时'+m+'分'+s+'秒'
+
+        }
+        setInterval(time,1000)
+    </script>
+</header>
+<selection class="mainbox">
+    <div class="column">
+        <!   数字模块-->
+        <div class="no">
+            <div class="no-hd">
+                <ul>
+                    <li>1666666</li>
+                    <li>1333333</li>
+                </ul>
+            </div>
+            <div class="no-bd">
+                <ul>
+                    <li>职位需求人数</li>
+                    <li>有效需求人数</li>
+                </ul>
+            </div>
+        </div>
+        <div class="map">
+            <div class="map1"></div>
+            <div class="map2"></div>
+            <div class="map3"></div>
+            <div class="echart">地图模块</div>
+        </div>
+    </div>
+    <div class="column"><div class="panel bar">
+        <h2>柱形图-就业趋势</h2>
+        <div class="chart"></div>
+        <div class="panel-footer"></div>
+    </div> <div class="panel line">
+        <h2>折线图-就业趋势</h2>
+        <div class="chart"></div>
+        <div class="panel-footer"></div>
+    </div> <div class="panel pie">
+        <h2>饼图-就业趋势</h2>
+        <div class="chart"></div>
+        <div class="panel-footer"></div>
+    </div>
+    </div>
+    <div class="column"> <div class="panel bar2">
+        <h2>柱形图-就业行情</h2>
+        <div class="chart"></div>
+        <div class="panel-footer"></div>
+    </div> <div class="panel line">
+        <h2>折线图-就业行情</h2>
+        <div class="chart"></div>
+        <div class="panel-footer"></div>
+    </div> <div class="panel pie">
+        <h2>饼图-就业行情</h2>
+        <div class="chart"></div>
+        <div class="panel-footer"></div>
+    </div></div>
+
+</selection>
+<body>
+<script src="js/flexible.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+<html>
+
+
