@@ -243,7 +243,7 @@
         legend: {
             //data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine'],
             textStyle: {
-                color:"#47d4ff"//图例文字颜色
+                color:"#FFF"//图例文字颜色
             },
             //距离右边10%
             right:'25%' // 距离右边25%
@@ -314,5 +314,157 @@
     window.addEventListener("resize",function (){
         myChart.resize();
     })
-
+})();
+// 折线图2模块制作
+(function() {
+// 1. 实例化对象
+    var myChart = echarts.init(document.querySelector(".line2  .chart"));
+// 2.指定配置
+    var option = {
+        tooltip: {
+            trigger: 'axis',
+        },
+        legend: {
+            top:"0%",
+            data: ['泰库辣', '太酷了'],
+            textStyle: {
+                color: "rgb(255,255,255)",
+                fontSize: "12"
+            },
+        },
+        grid: {
+            left: '5%',
+            top: "30",
+            right: "10",
+            bottom: "10",
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type: 'category',
+                boundaryGap: false,
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                //文本颜色以及文字大小
+                axisLabel: {
+                    textStyle: {
+                        color: "rgba(255,255,255,0.8)",
+                        fontSize: 12
+                    }
+                },
+                //X轴的颜色
+                axisLine: {
+                    lineStyle: {
+                        color: "rgba(255,255,255,0.82)"
+                    }
+                }
+            },
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                //不显示刻度标签
+                axisTick: { show: false },
+                axisLine: {
+                    lineStyle: {
+                        color: "rgba(255,255,255,.1)"
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: "rgba(255,255,255,.6)",
+                        fontSize: 12
+                    }
+                },
+                // 修改分割线的颜色
+                splitLine: {
+                    lineStyle: {
+                        color: "rgba(255,255,255,.1)"
+                    }
+                }
+            }
+        ],
+        series: [
+            {
+                name: '泰库辣',
+                type: 'line',
+                //stack: 'Total',
+                emphasis: {
+                    focus: 'series'
+                },
+                // 填充区为渐变色
+                areaStyle: {
+                    //color: 'pink',
+                    // 渐变色，只需要复制即可
+                    color: new echarts.graphic.LinearGradient(
+                        0, 0, 0, 1,
+                        [
+                            {
+                                offset: 0,
+                                color: "rgba(1, 132, 213, 0.4)",
+                                // 渐变色的起始颜色
+                            },
+                            {
+                                offset: 0.8,
+                                color: "rgba(1, 132, 213, 0.1)",
+                                // 渐变线的结束颜色
+                            }
+                        ],
+                        false ),
+                    //影子颜色
+                    shadowColor: "rgba(0, 0, 0, 0.1)"
+                },
+                data: [120, 132, 101, 134, 90, 230, 210],
+                //让曲线变圆滑
+                smooth: true,
+                // 单独修改线的样式
+                lineStyle: {
+                    color: "#bf00ff",
+                    width: 2
+                },
+                // 设置拐点小圆点
+                symbol: "circle",
+                // 拐点大小
+                symbolSize: 8,
+                // 开始不显示拐点， 鼠标经过显示
+                showSymbol: false,
+                // 设置拐点颜色以及边框
+                itemStyle: {
+                    color: "black",
+                    borderColor: "rgba(221, 220, 107, .1)",
+                    borderWidth: 12
+                },
+            },
+            {
+                name: '太酷了',
+                type: 'line',
+                //stack: 'Total',
+                areaStyle: {},
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [220, 182, 191, 234, 290, 330, 310],
+                //让曲线变圆滑
+                smooth: true,
+                // 单独修改线的样式
+                lineStyle: {
+                    color: "black",
+                    width: 2
+                },
+                // 设置拐点小圆点
+                symbol: "circle",
+// 拐点大小
+                symbolSize: 8,
+                // 开始不显示拐点， 鼠标经过显示
+                showSymbol: false,
+                // 设置拐点颜色以及边框
+                itemStyle: {
+                    color: "red",
+                    borderColor: "rgba(221, 220, 107, .1)",
+                    borderWidth: 12
+                },
+            },
+        ]
+    };
+// 3. 把配置给实例对象
+    myChart.setOption(option);
 })();
