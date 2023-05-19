@@ -19,7 +19,7 @@
 
         xAxis: {
             type: 'category',
-            data: ['C', '大数据', 'Web前端', 'SQL', 'hadoop', '应用服务', '其他'],
+            data: ['C', '大数', 'Web前端', 'SQL', 'hadoop', '应用服务', '其他'],
             // 修改刻度标签 相关样式
             axisLabel: {
                 color: "white",
