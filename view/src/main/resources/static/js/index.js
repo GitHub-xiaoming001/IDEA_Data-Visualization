@@ -490,7 +490,13 @@
             // 距离底部为0
             bottom: '0%',
             left: 'center',
-            
+            // 小图标的宽度和高度
+            itemWidth: 10,
+            itemHeight: 10,
+            textStyle: {
+                color: "rgba(255,255,255,.5)",
+                fontSize: "12"
+            },
         },
         series: [
             {
