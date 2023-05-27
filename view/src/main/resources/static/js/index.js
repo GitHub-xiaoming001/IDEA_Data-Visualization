@@ -476,3 +476,52 @@
         myChart.reset();
     })
 })();
+// 饼形图1
+(function() {
+// 1. 实例化对象
+    var myChart = echarts.init(document.querySelector(".pie .chart"));
+
+// 2.指定配置
+    var option = {
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            // 距离底部为0
+            bottom: '0%',
+            left: 'center',
+            
+        },
+        series: [
+            {
+                name: 'Access From',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: 40,
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [
+                    { value: 1048, name: 'Search Engine' },
+                    { value: 735, name: 'Direct' },
+                    { value: 580, name: 'Email' },
+                    { value: 484, name: 'Union Ads' },
+                    { value: 300, name: 'Video Ads' }
+                ]
+            }
+        ]
+    };
+// 3. 把配置给实例对象
+    myChart.setOption(option);
+})()
