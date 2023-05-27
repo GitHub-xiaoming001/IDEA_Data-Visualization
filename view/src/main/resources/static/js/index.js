@@ -243,7 +243,7 @@
         legend: {
             //data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine'],
             textStyle: {
-                color:"#e3e9f3"//图例文字颜色
+                color:"#FFF"//图例文字颜色
             },
             //距离右边10%
             right:'25%' // 距离右边25%
@@ -268,7 +268,7 @@
                 show:false //去除刻度线
             },
             axisLabel:{
-                color:'rgb(220,221,227)' //文本颜色
+                color:'rgba(255,255,255,0.98)' //文本颜色
             },
             axisLine:{
                 show:false //去除轴线
@@ -285,7 +285,7 @@
                 }
             },
             axisLabel:{
-                color:'#47d4ff' //文本颜色
+                color:'#ffffff' //文本颜色
             },
         },
         series: [
