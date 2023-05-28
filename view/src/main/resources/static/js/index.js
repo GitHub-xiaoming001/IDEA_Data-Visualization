@@ -546,9 +546,6 @@
         var myChart = echarts.init(document.querySelector(".pie2 .chart"));
 // 2.指定配置
         var option = {
-            legend: {
-                top: 'bottom'
-            },
             toolbox: {
                 show: true,
                 feature: {
@@ -569,15 +566,24 @@
                         borderRadius: 8
                     },
                     data: [
-                        { value: 40, name: 'rose 1' },
-                        { value: 38, name: 'rose 2' },
-                        { value: 32, name: 'rose 3' },
-                        { value: 30, name: 'rose 4' },
-                        { value: 28, name: 'rose 5' },
-                        { value: 26, name: 'rose 6' },
-                        { value: 22, name: 'rose 7' },
-                        { value: 18, name: 'rose 8' }
-                    ]
+                        { value: 20, name: '云南' },
+                        { value: 26, name: '北京' },
+                        { value: 24, name: '山东' },
+                        { value: 25, name: '河北' },
+                        { value: 20, name: '江苏' },
+                        { value: 25, name: '浙江' },
+                        { value: 30, name: '四川' },
+                        { value: 42, name: '湖北' }
+                    ],
+                    // 自定义颜色
+                    color: ['#006cff', '#60cda0', '#ed8884', '#ff9f7f',
+                        '#0096ff', '#9fe6b8', '#32c5e9','#1d9dff'],
+                    // 修改饼图大小
+                    radius: ['10%', '70%'],
+                    // 饼图显示模式：半径模式
+                    roseType: "radius",
+                    // 居中显示
+                    center: ['50%', '50%'],
                 }
             ]
         };
