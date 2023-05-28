@@ -44,7 +44,7 @@
                                 provideNumber;
                             var end = start +
                                 provideNumber;
-                            if (p == rowNumber - 1 )
+                            if ( p == rowNumber - 1 )
                             {
                                 tempStr =
                                     params.substring(start, paramsNameNumber);
@@ -502,7 +502,7 @@
             {
                 name: 'Access From',
                 type: 'pie',
-                radius: ['40%', '70%'],
+                radius: ['40%', '60%'],
                 avoidLabelOverlap: false,
                 label: {
                     show: false,
@@ -524,7 +524,9 @@
                     { value: 580, name: 'Email' },
                     { value: 484, name: 'Union Ads' },
                     { value: 300, name: 'Video Ads' }
-                ]
+                ],
+                // 设置饼形图在容器中的位置
+                center: ["50%", "50%"],
             }
         ]
     };
