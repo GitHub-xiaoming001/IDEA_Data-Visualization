@@ -500,7 +500,7 @@
         },
         series: [
             {
-                name: 'Access From',
+                name: '工龄分布',
                 type: 'pie',
                 radius: ['40%', '60%'],
                 avoidLabelOverlap: false,
@@ -519,17 +519,23 @@
                     show: false
                 },
                 data: [
-                    { value: 1048, name: 'Search Engine' },
-                    { value: 735, name: 'Direct' },
-                    { value: 580, name: 'Email' },
-                    { value: 484, name: 'Union Ads' },
-                    { value: 300, name: 'Video Ads' }
+                    { value: 1, name: "0年以下" },
+                    { value: 4, name: "1-3年" },
+                    { value: 2, name: "3-5年" },
+                    { value: 2, name: "5-10年" },
+                    { value: 1, name: "10年以上" }
                 ],
                 // 设置饼形图在容器中的位置
                 center: ["50%", "50%"],
+                // 更换颜色
+                color: ["#065aab", "#066eab", "#0682ab", "#0696ab", "#06a0ab"],
             }
         ]
     };
 // 3. 把配置给实例对象
     myChart.setOption(option);
+    // 4. 让图表跟随屏幕自动的去适应
+    window.addEventListener("resize", function() {
+        myChart.resize();
+    });
 })()
