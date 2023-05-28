@@ -111,9 +111,9 @@
     }
     //将配置项给实例对象
     myChart.setOption(option);
-    window.addEventListener("reset",function (){
+    window.addEventListener("resize", function() {
         myChart.resize();
-    })
+    });
 })();
 
 
@@ -221,9 +221,9 @@
     };
     //把配置给实例对象
     myChart.setOption(option);
-    window.addEventListener("reset",function (){
+    window.addEventListener("resize", function() {
         myChart.resize();
-    })
+    });
 })();
 
 
@@ -472,9 +472,9 @@
     };
 // 3. 把配置给实例对象
     myChart.setOption(option);
-    window.addEventListener("resize",function(){
-        myChart.reset();
-    })
+    window.addEventListener("resize", function() {
+        myChart.resize();
+    });
 })();
 // 饼形图1
 (function() {
@@ -728,30 +728,31 @@
         青岛: [120.4651, 36.3373],
         韶关: [113.7964, 24.7028]
     };
+    //飞机路线：起点-终点
     var XAData = [
-        [{ name: "西安" }, { name: "拉萨", value: 100 }],
-        [{ name: "西安" }, { name: "上海", value: 100 }],
-        [{ name: "西安" }, { name: "广州", value: 100 }],
-        [{ name: "西安" }, { name: "西宁", value: 100 }],
-        [{ name: "西安" }, { name: "银川", value: 100 }]
+        [{ name: "北京" }, { name: "拉萨", value: 100 }],
+        [{ name: "北京" }, { name: "上海", value: 100 }],
+        [{ name: "北京" }, { name: "广州", value: 100 }],
+        [{ name: "北京" }, { name: "西宁", value: 100 }],
+        [{ name: "北京" }, { name: "银川", value: 100 }]
     ];
 
     var XNData = [
-        [{ name: "西宁" }, { name: "北京", value: 100 }],
-        [{ name: "西宁" }, { name: "上海", value: 100 }],
-        [{ name: "西宁" }, { name: "广州", value: 100 }],
-        [{ name: "西宁" }, { name: "西安", value: 100 }],
-        [{ name: "西宁" }, { name: "银川", value: 100 }]
+        [{ name: "贵阳" }, { name: "北京", value: 100 }],
+        [{ name: "贵阳" }, { name: "上海", value: 100 }],
+        [{ name: "贵阳" }, { name: "广州", value: 100 }],
+        [{ name: "安顺" }, { name: "西安", value: 100 }],
+        [{ name: "安顺" }, { name: "银川", value: 100 }]
     ];
 
     var YCData = [
-        [{ name: "拉萨" }, { name: "潍坊", value: 100 }],
-        [{ name: "拉萨" }, { name: "哈尔滨", value: 100 }],
-        [{ name: "银川" }, { name: "上海", value: 100 }],
-        [{ name: "银川" }, { name: "西安", value: 100 }],
-        [{ name: "银川" }, { name: "西宁", value: 100 }]
+        [{ name: "杭州" }, { name: "潍坊", value: 100 }],
+        [{ name: "上海" }, { name: "哈尔滨", value: 100 }],
+        [{ name: "深圳" }, { name: "上海", value: 100 }],
+        [{ name: "上海" }, { name: "西安", value: 100 }],
+        [{ name: "上海" }, { name: "西宁", value: 100 }]
     ];
-
+    //飞机图片样式
     var planePath = "path://M1705.06,1318.313v-89.254l-319.9-22" + "1.799l0.073-208.06" +
         "3c0.521-84.662-26.629-121.796-63.961-121.491c37.332-0.305-64.482,36.829-63" +
         ".961,121.491l0.073,208.063l319.9,221.799v89.254l330.343-157.288l12.238,241" +
@@ -781,10 +782,12 @@
     var color = ["#a6c84c", "#ffa022", "#46bee9"]; //航线的颜色
     var series = [];
     [
-        ["西安", XAData],
-        ["西宁", XNData],
-        ["银川", YCData]
+        ["北京", XAData],
+        ["贵阳", XNData],
+        ["上海", YCData]
     ].forEach(function(item, i) {
+        //第一个series 设置飞机路线的特效
+        //第二个series 设置地图点的特效
         series.push(
             {
                 name: item[0] + " Top3",
@@ -831,9 +834,11 @@
             },
             {
                 name: item[0] + " Top3",
+                //带有涟漪特效动画的散点（气泡）图
                 type: "effectScatter",
                 coordinateSystem: "geo",
                 zlevel: 2,
+                //涟漪特效相关配置
                 rippleEffect: {
                     brushType: "stroke"
                 },
@@ -890,7 +895,7 @@
             orient: "vertical",
             top: "bottom",
             left: "right",
-            data: ["西安 Top3", "西宁 Top3", "银川 Top3"],
+            data: ["北京 Top3", "贵阳 Top3", "上海 Top3"],
             textStyle: {
                 color: "#fff"
             },
@@ -923,5 +928,8 @@
     };
 // 3. 把配置给实例对象
     myChart.setOption(option);
-
+    //4. 监听浏览器缩放，图表对象调用缩放resize函数
+    window.addEventListener("resize", function() {
+        myChart.resize();
+    });
 })();
