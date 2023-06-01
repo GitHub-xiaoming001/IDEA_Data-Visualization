@@ -1,5 +1,6 @@
 package org.ymw.view.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 用来接收前端数据请求的controller
@@ -7,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //=@Controller+@ResponseBody表示该类是springboot的一个controller，且返回的数据为JSON格式
 
 @RequestMapping("/view")
-    public class ViewController {
+@RestController
+
+public class ViewController {
 
         @RequestMapping("/getAreaData")
         public void getAreaData(){
