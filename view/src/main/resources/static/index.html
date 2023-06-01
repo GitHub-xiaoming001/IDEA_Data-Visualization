@@ -30,7 +30,6 @@
             var m=dt.getMinutes();
             var s=dt.getSeconds();
             document.querySelector(".showTime").innerHTML ="日期："+y+'年'+mt+'月'+day+'日'+h+'时'+m+'分'+s+'秒'
-
         }
         setInterval(time,1000)
     </script>
@@ -59,38 +58,41 @@
             <div class="echart">地图模块</div>
         </div>
     </div>
-    <div class="column"><div class="panel bar">
-        <h2>柱形图-就业趋势</h2>
+        <div class="column">
+        <div class="panel bar">
+        <h2>不同行业职位需求数量</h2>
         <div class="chart"></div>
         <div class="panel-footer"></div>
     </div>
         <div class="panel line">
         <a class="qieh" href="javacript:;">2022</a>
         <a class="qieh" href="javascript:;">2023</a>
-        <h2>折线图-就业趋势
+        <h2>国内外需求分析
             <a class="qieh" href="javacript:;">2022</a>
             <a class="qieh" href="javacript:;">2023</a>
         </h2>
         <div class="chart"></div>
         <div class="panel-footer"></div>
-    </div> <div class="panel pie">
-        <h2>饼图-就业趋势</h2>
+    </div>
+            <div class="panel pie">
+        <h2>薪资分布</h2>
         <div class="chart"></div>
         <div class="panel-footer"></div>
+            </div>
     </div>
-    </div>
-    <div class="column"> <div class="panel bar2">
-        <h2>柱形图-就业行情</h2>
+        <div class="column">
+        <div class="panel bar2">
+        <h2>热门岗位</h2>
         <div class="chart"></div>
         <div class="panel-footer"></div>
 
     </div> <div class="panel line2">
-        <h2>折线图-就业行情</h2>
+        <h2>岗位需求数量（月）</h2>
         <div class="chart"></div>
         <div class="panel-footer"></div>
 
     </div> <div class="panel pie2">
-        <h2>饼图-就业行情</h2>
+        <h2>南丁格尔玫瑰图-就业城市</h2>
         <div class="chart"></div>
         <div class="panel-footer"></div>
     </div></div>
@@ -102,7 +104,6 @@
 <script src="js/flexible.js"></script>
 <script src="js/echarts.min.js"></script>
 <script src="js/jquery.js"></script>
-!-- 引入china.js是因为中国地图需要-->
 <script src="js/china.js"></script>
 <script src="js/index.js"></script>
 </body>
